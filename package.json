@@ -1,0 +1,19 @@
+{
+  "name": "contact-app",
+  "version": "1.0.0",
+  "description": "contact Rest API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/omarfesal/contact-list.git"
+  },
+  "author": "Omar Ghazi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/omarfesal/contact-list/issues"
+  },
+  "homepage": "https://github.com/omarfesal/contact-list#readme"
+}
