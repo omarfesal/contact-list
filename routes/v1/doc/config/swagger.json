@@ -13,5 +13,76 @@
 				"scheme": "bearer"
 			}
 		}
+	},
+	"servers": [
+		{
+			"url": "/api/v1"
+		}
+	],
+	"tags": [
+		{
+			"name": "Contact",
+			"description": "All APIS concerning Contact Module"
+		}
+	],
+	"paths": {
+		"/contacts/addContact": {
+			"post": {
+				"tags": ["Contact"],
+				"summary": "Api call used to add new contact",
+				"requestBody": {
+					"required": true,
+					"description": "*New contact data*",
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"email": {
+										"type": "string",
+										"example": "Omar.ghazy@gmail.com"
+									},
+									"mobile": {
+										"type": "string",
+										"example": "+201093056318"
+									},
+									"firstname": {
+										"type": "string",
+										"example": "Omar"
+									},
+									"lastname": {
+										"type": "string",
+										"example": "Ghazi"
+									},
+									"authorization": {
+										"type": "string",
+										"example": "qwerfggfdgssdlkklamsdmkladmkllwqe"
+									},
+									"deviceToken": {
+										"type": "string",
+										"example": "asdlamsdmkl"
+									},
+									"fingerPrint": {
+										"type": "string",
+										"example": "amklsdklmkasdl"
+									}
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "Number is reachable and data about its Capabilities retrieved "
+					},
+					"400": {
+						"description": "Data that sent mismatch with the server endpoint need"
+					},
+					"500": {
+						"description": "Unknown server error"
+					}
+				}
+			}
+		}
 	}
 }
