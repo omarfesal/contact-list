@@ -7,7 +7,8 @@
 		"start": "nodemon bin/www",
 		"test": "jest --env node --detectOpenHandles --forceExit",
 		"migrate": "sequelize db:migrate",
-		"migrate:undo:all": "sequelize db:migrate:undo:all"
+		"unmigrate": "sequelize db:migrate:undo:all",
+		"seed": "sequelize db:seed:all"
 	},
 	"repository": {
 		"type": "git",
