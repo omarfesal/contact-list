@@ -120,6 +120,34 @@
 					}
 				}
 			}
+		},
+		"/contacts/getRecentList": {
+			"post": {
+				"tags": ["Contact"],
+				"summary": "Api call used to get user recent contacts",
+				"parameters": [
+					{
+						"in": "query",
+						"name": "limit",
+						"schema": {
+							"type": "number"
+						},
+						"required": false,
+						"description": "number of contacts [default: 5]"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "get User's recent Contacts successfully"
+					},
+					"400": {
+						"description": "Internal Server error"
+					},
+					"500": {
+						"description": "Unknown server error"
+					}
+				}
+			}
 		}
 	}
 }
