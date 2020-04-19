@@ -73,7 +73,44 @@
 				},
 				"responses": {
 					"200": {
-						"description": "Number is reachable and data about its Capabilities retrieved "
+						"description": "Contact Added successfully"
+					},
+					"400": {
+						"description": "Data that sent mismatch with the server endpoint need"
+					},
+					"500": {
+						"description": "Unknown server error"
+					}
+				}
+			}
+		},
+		"/contacts/getlist": {
+			"post": {
+				"tags": ["Contact"],
+				"summary": "Api call used to get user contacts",
+				"parameters": [
+					{
+						"in": "query",
+						"name": "page",
+						"schema": {
+							"type": "number"
+						},
+						"required": true,
+						"description": "Page number"
+					},
+					{
+						"in": "query",
+						"name": "pageSize",
+						"schema": {
+							"type": "number"
+						},
+						"required": true,
+						"description": "Number of contacts per page"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "get User Contacts successfully"
 					},
 					"400": {
 						"description": "Data that sent mismatch with the server endpoint need"
