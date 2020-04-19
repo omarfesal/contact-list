@@ -1,5 +1,5 @@
 const request = require("supertest");
-const app = require("../../../app");
+const app = require("../../app");
 
 describe("test contact controller", () => {
 	it("should add new contact and return successful", async (done) => {
