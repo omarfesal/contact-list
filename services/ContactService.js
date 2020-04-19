@@ -13,10 +13,14 @@ const findAllContacts = async ({ page, pageSize }, owner) => {
 	});
 };
 
-const findRecentContacts = async (limit = 5) => {
+const findRecentContacts = async (limit = 5, owner) => {
 	return await Contact.findAll({
+		where: {
+			userId: owner,
+		},
 		order: [["createdAt", "DESC"]],
 		limit: parseInt(limit),
+		attributes: { exclude: ["UserId"] },
 	});
 };
 

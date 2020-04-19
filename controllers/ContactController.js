@@ -32,7 +32,8 @@ const findAllContacts = async (req, resp) => {
 
 const getRecentContacts = async (req, resp) => {
 	let { limit } = req.query;
-	await ContactService.findRecentContacts(limit)
+	const { currentUser } = req;
+	await ContactService.findRecentContacts(limit, currentUser["id"])
 		.then((data) => {
 			return resp
 				.status(200)
