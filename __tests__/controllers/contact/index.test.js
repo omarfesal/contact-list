@@ -9,15 +9,23 @@ describe("test contact controller", () => {
 			.send({
 				email: "omar@gmail.com",
 				mobile: "+201010101010",
-				firstname: "Omar",
-				lastname: "Ghazy",
+				firstName: "Omar",
+				lastName: "Ghazy",
 				authorization: "token",
 				deviceToken: "asdad",
 				fingerPrint: "asdad",
 			})
 			.then((res) => {
 				expect(res.statusCode).toEqual(200);
-				let responseData = { message: "data added successfully" };
+				let responseData = {
+					message: "data added successfully",
+					data: {
+						email: "omar@gmail.com",
+						mobile: "+201010101010",
+						firstName: "Omar",
+						lastName: "Ghazy",
+					},
+				};
 				expect(res.body).toMatchObject(responseData);
 				done();
 			});

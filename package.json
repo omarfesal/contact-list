@@ -5,7 +5,9 @@
 	"main": "index.js",
 	"scripts": {
 		"start": "nodemon bin/www",
-		"test": "jest --env node --detectOpenHandles --forceExit"
+		"test": "jest --env node --detectOpenHandles --forceExit",
+		"migrate": "sequelize db:migrate",
+		"migrate:undo:all": "sequelize db:migrate:undo:all"
 	},
 	"repository": {
 		"type": "git",
