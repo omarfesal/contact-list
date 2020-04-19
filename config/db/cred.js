@@ -1,18 +1,25 @@
 require("dotenv").config();
+
+DB_username = "root";
+DB_password = "123456";
+DB_name = "contact";
+DB_host = "127.0.0.1";
+DB_LOGGING = "true";
+
 module.exports = {
 	development: {
-		username: process.env.DB_username,
-		password: process.env.DB_password,
-		database: process.env.DB_name,
-		host: process.env.DB_host,
+		username: "root",
+		password: "123456",
+		database: "contact",
+		host: "127.0.0.1",
 		dialect: "mysql",
 		logging: process.env.DB_LOGGING === "true" ? console.log : false,
 	},
 	test: {
-		username: process.env.DB_TEST_username,
-		password: process.env.DB_TEST_password,
-		database: process.env.DB_TEST_name,
-		host: process.env.DB_TEST_host,
+		username: "root",
+		password: "123456",
+		database: "contact",
+		host: "127.0.0.1",
 		dialect: "mysql",
 		logging: console.log,
 	},

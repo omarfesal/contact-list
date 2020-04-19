@@ -2,7 +2,8 @@ const ContactService = require("../services/ContactService");
 
 const addContact = async (req, resp) => {
 	const body = req.validatedBody;
-	await ContactService.addNewContact(body)
+	const { currentUser } = req;
+	await ContactService.addNewContact(body, currentUser["id"])
 		.then((data) => {
 			return resp
 				.status(200)
@@ -15,7 +16,6 @@ const addContact = async (req, resp) => {
 };
 
 const findAllContacts = async (req, resp) => {
-	console.log("QUERRY=> ", req.query);
 	let { page, pageSize } = req.query;
 	await ContactService.findAllContacts(page, pageSize)
 		.then((data) => {

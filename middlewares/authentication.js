@@ -1,3 +1,5 @@
+const { User } = require("../models");
+
 const users = [
 	{
 		apiKey:
@@ -30,7 +32,9 @@ module.exports = async (req, res, next) => {
 	});
 	if (userList && userList.length > 0) {
 		console.debug("User Found", userList[0]);
-
+		const email = userList[0]["email"];
+		const user = await User.findOne({ where: { email } });
+		req.currentUser = user;
 		return next();
 	} else {
 		console.log("User NOT Found", userList);

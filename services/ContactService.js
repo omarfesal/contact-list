@@ -1,8 +1,8 @@
 const { Contact } = require("../models");
 const { paginate } = require("../utils/paginate");
 
-const addNewContact = async (contact) => {
-	return await Contact.create(contact);
+const addNewContact = async (contact, owner) => {
+	return await Contact.create({ ...contact, user_id: owner });
 };
 
 const findAllContacts = async (page, pageSize) => {

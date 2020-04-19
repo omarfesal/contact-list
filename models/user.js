@@ -1,17 +1,19 @@
 "use strict";
+
 module.exports = (sequelize, DataTypes) => {
-	const Contact = sequelize.define(
-		"Contact",
+	const User = sequelize.define(
+		"User",
 		{
 			firstName: DataTypes.STRING,
 			lastName: DataTypes.STRING,
 			email: DataTypes.STRING,
-			mobile: DataTypes.STRING,
 		},
 		{}
 	);
-	Contact.associate = function (models) {
-		Contact.belongsTo(models.User);
+	User.associate = function (models) {
+		User.hasMany(models.Contact, {
+			foreignKey: "user_id",
+		});
 	};
-	return Contact;
+	return User;
 };
