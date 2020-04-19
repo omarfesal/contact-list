@@ -17,7 +17,8 @@ const addContact = async (req, resp) => {
 
 const findAllContacts = async (req, resp) => {
 	let { page, pageSize } = req.query;
-	await ContactService.findAllContacts(page, pageSize)
+	const { currentUser } = req;
+	await ContactService.findAllContacts({ page, pageSize }, currentUser["id"])
 		.then((data) => {
 			return resp
 				.status(200)
