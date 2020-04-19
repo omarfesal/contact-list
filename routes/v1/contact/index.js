@@ -11,4 +11,7 @@ router.post(
 );
 
 router.post("/getlist", ContactController.findAllContacts);
+
+router.post("/getRecentList", ContactController.getRecentContacts);
+
 module.exports = router;

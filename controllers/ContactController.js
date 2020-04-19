@@ -29,7 +29,22 @@ const findAllContacts = async (req, resp) => {
 		});
 };
 
+const getRecentContacts = async (req, resp) => {
+	let { limit } = req.query;
+	await ContactService.findRecentContacts(limit)
+		.then((data) => {
+			return resp
+				.status(200)
+				.json({ message: "data added successfully", data });
+		})
+		.catch((error) => {
+			console.error(error);
+			return resp.status(400).json({ message: "something wrong happened" });
+		});
+};
+
 module.exports = {
 	addContact,
 	findAllContacts,
+	getRecentContacts,
 };

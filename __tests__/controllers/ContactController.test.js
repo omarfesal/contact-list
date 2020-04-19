@@ -39,4 +39,13 @@ describe("test contact controller", () => {
 				done();
 			});
 	});
+
+	test("getRecentlist API should return successful", async (done) => {
+		request(app)
+			.post("/api/v1/contacts/getRecentlist")
+			.then((res) => {
+				expect(res.statusCode).toEqual(200);
+				done();
+			});
+	});
 });

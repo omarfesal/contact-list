@@ -9,4 +9,11 @@ const findAllContacts = async (page, pageSize) => {
 	return await Contact.findAll(paginate(page, pageSize));
 };
 
-module.exports = { addNewContact, findAllContacts };
+const findRecentContacts = async (limit = 5) => {
+	return await Contact.findAll({
+		order: [["createdAt", "DESC"]],
+		limit: parseInt(limit),
+	});
+};
+
+module.exports = { addNewContact, findAllContacts, findRecentContacts };
