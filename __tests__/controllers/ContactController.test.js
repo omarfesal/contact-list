@@ -2,7 +2,7 @@ const request = require("supertest");
 const app = require("../../app");
 
 describe("test contact controller", () => {
-	it("should add new contact and return successful", async (done) => {
+	test("addContact Api should add new contact and return successful", async (done) => {
 		expect.assertions(2);
 		request(app)
 			.post("/api/v1/contacts/addContact")
@@ -27,6 +27,15 @@ describe("test contact controller", () => {
 					},
 				};
 				expect(res.body).toMatchObject(responseData);
+				done();
+			});
+	});
+
+	test("getList API should return successful", async (done) => {
+		request(app)
+			.post("/api/v1/contacts/getlist")
+			.then((res) => {
+				expect(res.statusCode).toEqual(200);
 				done();
 			});
 	});

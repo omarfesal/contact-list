@@ -9,4 +9,6 @@ router.post(
 	validateBody(addContactSchema),
 	ContactController.addContact
 );
+
+router.post("/getlist", ContactController.findAllContacts);
 module.exports = router;
