@@ -11,9 +11,6 @@ describe("test contact controller", () => {
 				mobile: "+201010101010",
 				firstName: "Omar",
 				lastName: "Ghazy",
-				authorization: "token",
-				deviceToken: "asdad",
-				fingerPrint: "asdad",
 			})
 			.then((res) => {
 				expect(res.statusCode).toEqual(200);

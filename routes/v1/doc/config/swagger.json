@@ -6,14 +6,6 @@
 		"title": "Contact API",
 		"termsOfService": "http://swagger.io/terms/"
 	},
-	"components": {
-		"securitySchemes": {
-			"BearerAuth": {
-				"type": "http",
-				"scheme": "bearer"
-			}
-		}
-	},
 	"servers": [
 		{
 			"url": "/api/v1"
@@ -30,6 +22,38 @@
 			"post": {
 				"tags": ["Contact"],
 				"summary": "Api call used to add new contact",
+				"parameters": [
+					{
+						"in": "header",
+						"name": "apiKey",
+						"schema": {
+							"type": "string",
+							"example": "WlVkT01tVkhVbTFhTWxadFpESkdlbHBFUlhsa2JVNDBaRzVvYW1SdWFHdGFiV1JzV201a2FHTmhjMlF4TWpNMFpYSjBaMlprYzJGNGMzcDRZM1ppZG0xcmJITms="
+						},
+						"required": true,
+						"description": "Authorization Token"
+					},
+					{
+						"in": "header",
+						"name": "deviceToken",
+						"schema": {
+							"type": "string",
+							"example": "ZUdOMmVHUjRaR1puWldaM1lYTmtkbU40ZG5oamRuaGt"
+						},
+						"required": true,
+						"description": "Device Token"
+					},
+					{
+						"in": "header",
+						"name": "fingerPrint",
+						"schema": {
+							"type": "string",
+							"example": "987654321"
+						},
+						"required": true,
+						"description": "Finger Print"
+					}
+				],
 				"requestBody": {
 					"required": true,
 					"description": "*New contact data*",
@@ -46,25 +70,13 @@
 										"type": "string",
 										"example": "+201093056318"
 									},
-									"firstname": {
+									"firstName": {
 										"type": "string",
 										"example": "Omar"
 									},
-									"lastname": {
+									"lastName": {
 										"type": "string",
 										"example": "Ghazi"
-									},
-									"authorization": {
-										"type": "string",
-										"example": "qwerfggfdgssdlkklamsdmkladmkllwqe"
-									},
-									"deviceToken": {
-										"type": "string",
-										"example": "asdlamsdmkl"
-									},
-									"fingerPrint": {
-										"type": "string",
-										"example": "amklsdklmkasdl"
 									}
 								}
 							}
@@ -89,6 +101,36 @@
 				"tags": ["Contact"],
 				"summary": "Api call used to get user contacts",
 				"parameters": [
+					{
+						"in": "header",
+						"name": "apiKey",
+						"schema": {
+							"type": "string",
+							"example": "WlVkT01tVkhVbTFhTWxadFpESkdlbHBFUlhsa2JVNDBaRzVvYW1SdWFHdGFiV1JzV201a2FHTmhjMlF4TWpNMFpYSjBaMlprYzJGNGMzcDRZM1ppZG0xcmJITms="
+						},
+						"required": true,
+						"description": "Authorization Token"
+					},
+					{
+						"in": "header",
+						"name": "deviceToken",
+						"schema": {
+							"type": "string",
+							"example": "ZUdOMmVHUjRaR1puWldaM1lYTmtkbU40ZG5oamRuaGt"
+						},
+						"required": true,
+						"description": "Device Token"
+					},
+					{
+						"in": "header",
+						"name": "fingerPrint",
+						"schema": {
+							"type": "string",
+							"example": "987654321"
+						},
+						"required": true,
+						"description": "Finger Print"
+					},
 					{
 						"in": "query",
 						"name": "page",
@@ -126,6 +168,36 @@
 				"tags": ["Contact"],
 				"summary": "Api call used to get user recent contacts",
 				"parameters": [
+					{
+						"in": "header",
+						"name": "apiKey",
+						"schema": {
+							"type": "string",
+							"example": "WlVkT01tVkhVbTFhTWxadFpESkdlbHBFUlhsa2JVNDBaRzVvYW1SdWFHdGFiV1JzV201a2FHTmhjMlF4TWpNMFpYSjBaMlprYzJGNGMzcDRZM1ppZG0xcmJITms="
+						},
+						"required": true,
+						"description": "Authorization Token"
+					},
+					{
+						"in": "header",
+						"name": "deviceToken",
+						"schema": {
+							"type": "string",
+							"example": "ZUdOMmVHUjRaR1puWldaM1lYTmtkbU40ZG5oamRuaGt"
+						},
+						"required": true,
+						"description": "Device Token"
+					},
+					{
+						"in": "header",
+						"name": "fingerPrint",
+						"schema": {
+							"type": "string",
+							"example": "987654321"
+						},
+						"required": true,
+						"description": "Finger Print"
+					},
 					{
 						"in": "query",
 						"name": "limit",
