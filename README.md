@@ -35,3 +35,7 @@ It will create image for node app and create image for mysql and will make migra
 
 APP API should be available through `http://127.0.0.1:8090/api/v1`
 You can open Documentation through `http://127.0.0.1:8090/api/v1/doc/api-docs`
+
+### Run Test Suites
+
+`npm run test`
