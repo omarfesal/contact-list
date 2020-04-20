@@ -1,0 +1,32 @@
+version: "3.7"
+
+services:
+  web:
+    container_name: contact-app
+    build: .
+    networks:
+      - contact-app-network
+    volumes:
+      - .:/usr/src/app
+    environment:
+      NODE_ENV: development
+    ports:
+      - "8090:4000"
+  mysql_db:
+    image: mysql:8.0.16
+    container_name: contact-app-mysql
+    networks:
+      - contact-app-network
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql/data/:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: contact
+      MYSQL_PASSWORD: 123456
+
+networks:
+  contact-app-network:
+    driver: bridge
